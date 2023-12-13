@@ -1,3 +1,5 @@
+alert("Olá, Mundo!")
+
 /*
 Tudo no meio é um comentário.
 */
