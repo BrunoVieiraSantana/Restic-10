@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*/
+        let nome = prompt ('Qual o seu nome?')
+        if (nome == '') {
+            alert ('Nome invalido')
+        } 
+        let peso = prompt ('Qual o seu peso?')
+        if (peso == '') {
+            alert ('Peso invalido')
+        } 
+        let altura = prompt ('Qual o seu altura?')
+        if (altura == '') {
+            alert ('altura invalido')
+        } 
+        
+        else
+            alert ('O nome do usuario é '+nome+', seu peso é '+peso+'Kg , sua altura é '+altura )
+
+
+            //let imc = (parseInt(peso)/(parseInt(altura)**2))//
+            let imc = peso.toNumber()/altura.toNumber()**2
+            alert (imc)
+        /*/
+
+        let usuario = {nome:'', idade:'', endereco:'', altura:'', peso:''}
+        usuario.nome = prompt ('Qual o seu nome?')
+        usuario.idade = prompt ('Qual sua idade?')
+        usuario.endereco = prompt ('Qual o seu endereço?')
+        usuario.altura = prompt ('Qual a sua altura?')
+        usuario.peso = prompt ('Qual o seu peso?')
+
+        let {nome, idade, endereco, altura, peso} = usuario
+        if (nome&&idade&&endereco&&altura&&peso){
+            alert (`Seu nome é ${nome}, seu peso é ${peso}Kg , sua altura é ${altura}`)
+        }
+
+        altura = parseFloat(altura.replace(",", "."))
+
+
+
+    </script>
+</body>
+</html>
