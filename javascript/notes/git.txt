@@ -14,6 +14,10 @@ mkdir repo-local
 cd repo-local
 git init
 
+git remote add origin url
+git push -u origin main
+
+
 git remote add origin https://github.com/BrunoVieiraSantana/repo-local.git
 
 git clone https://github.com/BrunoVieiraSantana/Restic-10.git --branch feature-1 --single-branch
@@ -50,3 +54,5 @@ git reflog
 
 git reset resumos/nomedoarquivo.md
 git reset --staged resumos/nomedoarquivo.md
+
+git checkout -b develop
