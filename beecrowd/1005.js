@@ -1,4 +1,4 @@
-var input = require('fs').readFileSync('input5.txt', 'utf8');
+var input = require('fs').readFileSync('input1005.txt', 'utf8');
 var lines = input.split(/\r?\n/);
 
 var a = parseFloat(lines.shift());
