@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Cadastro de Usúario</h1>
+        <p id="subtitulo">Complete suas informações</p>
+    </header>
+
+    <form action="https://658cbd67859b3491d3f657f0.mockapi.io/api/v1/users" method="post">
+
+        <fieldset class="grupo">
+            <section class="campo">
+                <label for="nome"><strong>Nome</strong></label>
+                <input type="text" name="nome" id="nome" required>
+
+            </section>
+
+            <section class="campo">
+                <label for="sobrenome"><strong>Sobrenome</strong></label>
+                <input type="text" name="sobrenome" id="sobrenome" required>
+            </section>
+        </fieldset> 
+
+
+        <section class="campo">
+            <label for="email"><strong>Email</strong></label>
+            <input type="email" name="email" id="email" required>
+        </section>
+    
+        <section class="campo">
+            <label for="endereco"><strong>Endereço</strong></label>
+            <input type="text" name="endereco" id="endereco" required>
+        </section>
+
+        <section class="campo">
+            <label for="nacionalidade"><strong>Nacionalidade</strong></label>
+            <input type="text" name="nacionalidade" id="nacionalidade" required>
+        </section>
+
+        <section class="campo">
+            <label for="telefone"><strong>Telefone</strong></label>
+            <input type="number" name="telefone" id="telefone" required>
+        </section>
+
+
+        <fieldset class="grupo">
+            <section class="campo">
+                <label><strong>Ocupação atual</strong></label>
+                <label>
+                    <input type="radio" name="ocupacao" value="estudante" checked>Estudante
+                </label>
+                <label>
+                    <input type="radio" name="ocupacao" value="clt">Empregado CLT
+                </label>
+                <label>
+                    <input type="radio" name="ocupacao" value="mei">MEI
+                </label>
+            </section>
+        </fieldset>
+
+        <button class="botao" type="submit" onsubmit="">Concluído</button> 
+
+    </form>
+
+
+</body>
+</html>
