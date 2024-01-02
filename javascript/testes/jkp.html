@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissors Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rock, Paper, Scissors Game</h1>
+  <p>Choose your move:</p>
+
+  <button onclick="playGame('rock')">Rock</button>
+  <button onclick="playGame('paper')">Paper</button>
+  <button onclick="playGame('scissors')">Scissors</button>
+
+  <div id="result"></div>
+
+  <script>
+    function playGame(playerChoice) {
+      // Computer's random choice
+      const choices = ['rock', 'paper', 'scissors'];
+      const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+      // Determine the winner
+      let result;
+      switch (playerChoice) {
+        case 'rock':
+          result = computerChoice === 'scissors' ? 'You win!' : computerChoice === 'paper' ? 'You lose!' : 'It\'s a tie!';
+          break;
+        case 'paper':
+          result = computerChoice === 'rock' ? 'You win!' : computerChoice === 'scissors' ? 'You lose!' : 'It\'s a tie!';
+          break;
+        case 'scissors':
+          result = computerChoice === 'paper' ? 'You win!' : computerChoice === 'rock' ? 'You lose!' : 'It\'s a tie!';
+          break;
+        default:
+          result = 'Invalid choice. Please choose rock, paper, or scissors.';
+      }
+
+      // Display the result
+      const resultElement = document.getElementById('result');
+      resultElement.innerHTML = `<p>You chose ${playerChoice}.<br>Computer chose ${computerChoice}.<br>${result}</p>`;
+    }
+  </script>
+
+</body>
+</html>
