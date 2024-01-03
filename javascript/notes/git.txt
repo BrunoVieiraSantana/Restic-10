@@ -10,6 +10,8 @@ git config --global credential.helper store or cache
 
 git clone https://github.com/BrunoVieiraSantana/Restic-10.git repo-clone
 
+git clone 
+
 mkdir repo-local
 cd repo-local
 git init

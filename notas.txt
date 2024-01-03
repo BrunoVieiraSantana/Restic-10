@@ -1,0 +1,77 @@
+Estrutura Básica:
+
+<!DOCTYPE html>: Define a versão do HTML sendo utilizada.
+<html>: Elemento raiz que envolve todo o conteúdo da página.
+<head>: Contém informações meta sobre o documento, como título, estilos, scripts, etc.
+<title>: Define o título da página exibido na barra de título ou na guia do navegador.
+<body>: Contém o conteúdo visível da página.
+
+Textos:
+
+<h1>, <h2>, ..., <h6>: Cabeçalhos de diferentes níveis.
+<p>: Parágrafo.
+<strong>: Texto forte (normalmente exibido em negrito).
+<em>: Texto enfatizado (normalmente exibido em itálico).
+<span>: Contêiner de texto inline.
+<br>: Quebra de linha.
+<hr>: Linha horizontal.
+
+Listas:
+
+<ul>: Lista não ordenada.
+<ol>: Lista ordenada.
+<li>: Item da lista.
+<dl>: Lista de definição.
+<dt>: Termo de definição em uma lista de definição.
+<dd>: Descrição de definição em uma lista de definição.
+
+Links e Imagens:
+
+<a>: Link.
+<img>: Imagem.
+<figure>: Contêiner para conteúdo multimídia.
+<figcaption>: Legenda para o conteúdo dentro de <figure>.
+<map>: Define um mapa de imagem para uso com <area>.
+
+Formulários:
+
+<form>: Formulário.
+<input>: Campo de entrada.
+<select>: Caixa de seleção.
+<textarea>: Área de texto.
+<button>: Botão.
+<label>: Rótulo associado a elementos de formulário.
+
+Tabelas:
+
+<table>: Tabela.
+<tr>: Linha da tabela.
+<td>: Célula da tabela (dados).
+<th>: Célula de cabeçalho da tabela.
+<caption>: Título da tabela.
+
+Semântica:
+
+<header>: Cabeçalho da página ou seção.
+<footer>: Rodapé da página ou seção.
+<nav>: Navegação.
+<main>: Contém o conteúdo principal da página.
+<article>: Conteúdo autônomo, como um artigo ou postagem de blog.
+<section>: Seção de um documento.
+<aside>: Conteúdo relacionado ou auxiliar.
+<details>: Elemento de detalhes para criar um widget de revelação.
+<summary>: Sumário associado a um elemento <details>.
+
+Multimídia:
+
+<audio>: Elemento de áudio.
+<video>: Elemento de vídeo.
+<source>: Define fontes de mídia para elementos de áudio e vídeo.
+
+Embedding:
+
+<iframe>: Frame embutido.
+<object>: Objeto embutido.
+Scripting:
+
+<script>: Script embutido ou referência a um script externo.
