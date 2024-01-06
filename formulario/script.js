@@ -1,82 +1,87 @@
-let equipmentList = [];
+let listaEquipamentos = [];
 
-function addEquipment() {
-    const selectedEquipment = document.getElementById('equipment').value;
-    const quantity = parseFloat(document.getElementById('quantity').value);
-    const duration = parseFloat(document.getElementById('duration').value);
-    const durationDays = parseFloat(document.getElementById('duration-days').value);
+function adicionarEquipamento() {
+    const equipamentoSelecionado = document.getElementById('equipamento').value;
+    const quantidade = parseFloat(document.getElementById('quantidade').value);
+    const duracao = parseFloat(document.getElementById('duracao').value);
+    const duracaoDias = parseFloat(document.getElementById('duracao-dias').value);
 
-const equipmentInfo = {
-        equipment: selectedEquipment,
-        quantity: quantity,
-        duration: duration,
-        durationDays: durationDays
+    const informacoesEquipamento = {
+        equipamento: equipamentoSelecionado,
+        quantidade: quantidade,
+        duracao: duracao,
+        duracaoDias: duracaoDias
     };
 
-    equipmentList.push(equipmentInfo);
-    displayEquipmentList();
+    listaEquipamentos.push(informacoesEquipamento);
+    exibirListaEquipamentos();
+    calcularOrcamento();
 }
 
-function displayEquipmentList() {
-    const equipmentListContainer = document.getElementById('equipment-list');
-    equipmentListContainer.innerHTML = '<h3>Equipamentos Adicionados:</h3>';
+function exibirListaEquipamentos() {
+    const containerListaEquipamentos = document.getElementById('lista-equipamentos');
+    containerListaEquipamentos.innerHTML = '<h3>Equipamentos Adicionados:</h3>';
 
-    equipmentList.forEach((equipmentInfo, index) => {
-        const equipmentText = equipmentInfo.quantity + ' ' + equipmentInfo.equipment +
-            `(s) - ${equipmentInfo.duration} ${getDurationText(equipmentInfo.duration)} (${equipmentInfo.durationDays} ${getDaysText(equipmentInfo.durationDays)})`;
+    listaEquipamentos.forEach((informacoesEquipamento, index) => {
+        const textoEquipamento = informacoesEquipamento.quantidade + ' ' + informacoesEquipamento.equipamento +
+            `(s) - ${informacoesEquipamento.duracao} ${obterTextoDuracao(informacoesEquipamento.duracao)} (${informacoesEquipamento.duracaoDias} ${obterTextoDias(informacoesEquipamento.duracaoDias)})`;
 
-            equipmentListContainer.innerHTML += `
-            <p class="equipment-item">
-                <img src="delete.png" alt="Delete" onclick="removeEquipment(${index})" class="delete-icon">
-                Equipamento ${index + 1}: ${equipmentText}
-
+        containerListaEquipamentos.innerHTML += `
+            <p class="item-equipamento">
+                <img src="delete.png" alt="Excluir" onclick="removerEquipamento(${index})" class="icone-excluir">
+                Equipamento ${index + 1}: ${textoEquipamento}
             </p>`;
     });
 }
 
-function removeEquipment(index) {
-    equipmentList.splice(index, 1);
-    showDeleteModal(index);
+function removerEquipamento(index) {
+    exibirModalExclusao(index);
 }
 
-function showDeleteModal(index) {
-    const modal = document.getElementById('deleteModal');
-    const modalOverlay = document.getElementById('deleteModalOverlay');
-    const modalClose = document.getElementById('deleteModalClose');
+function exibirModalExclusao(index) {
+    const modal = document.getElementById('modalExclusao');
+    const overlayModal = document.getElementById('overlayModalExclusao');
+    const fecharModal = document.getElementById('fecharModalExclusao');
 
     modal.style.display = 'block';
-    modalOverlay.style.display = 'block';
+    overlayModal.style.display = 'block';
 
-    modalClose.onclick = function() {
+    // MDN - block -  O elemento gera uma caixa de elemento de bloco, gerando quebras de linha antes e depois do elemento quando no fluxo normal.
+
+    fecharModal.onclick = function() {
         modal.style.display = 'none';
-        modalOverlay.style.display = 'none';
+        overlayModal.style.display = 'none';
     };
 
-    modalOverlay.onclick = function() {
+    // MDN - none - Desativa a exibição de um elemento para que não tenha efeito no layout (o documento é renderizado como se o elemento não existisse). Todos os elementos descendentes também têm sua exibição desligada. Para que um elemento ocupe o espaço que normalmente ocuparia, mas sem realmente renderizar nada, use a propriedade
+
+    overlayModal.onclick = function() {
         modal.style.display = 'none';
-        modalOverlay.style.display = 'none';
+        overlayModal.style.display = 'none';
     };
 
-
-    const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-    confirmDeleteButton.onclick = function() {
-
-        equipmentList.splice(index, 1);
-        displayEquipmentList();
+    const botaoConfirmarExclusao = document.getElementById('confirmarExclusao');
+    botaoConfirmarExclusao.onclick = function() {
+        listaEquipamentos.splice(index, 1);
+        exibirListaEquipamentos();
+        calcularOrcamento();
         modal.style.display = 'none';
-        modalOverlay.style.display = 'none';
+        overlayModal.style.display = 'none';
+        
     };
 }
-function getDurationText(duration) {
-    return duration === 1 ? 'mês' : 'meses';
+
+// Operador Condicional Ternário
+function obterTextoDuracao(duracao) {
+    return duracao === 1 ? 'mês' : 'meses';
 }
 
-function getDaysText(durationDays) {
-    return durationDays === 1 ? 'dia' : 'dias';
+function obterTextoDias(duracaoDias) {
+    return duracaoDias === 1 ? 'dia' : 'dias';
 }
 
-function calculateQuote() {
-    const prices = {
+function calcularOrcamento() {
+    const precos = {
         desktop: 100,
         laptop: 80,
         impressora: 20,
@@ -99,14 +104,13 @@ function calculateQuote() {
         'cadeira-escritorio': 40,
         'luminaria-mesa': 12,
         'mesa-escritorio': 80
-
     };
-    let totalPrice = 0;
+    let precoTotal = 0;
 
-equipmentList.forEach(equipmentInfo => {
-    const totalMonths = equipmentInfo.duration + equipmentInfo.durationDays / 30;
-    totalPrice += prices[equipmentInfo.equipment] * equipmentInfo.quantity * totalMonths;
+    listaEquipamentos.forEach(informacoesEquipamento => {
+        const mesesTotais = informacoesEquipamento.duracao + informacoesEquipamento.duracaoDias / 30;
+        precoTotal += precos[informacoesEquipamento.equipamento] * informacoesEquipamento.quantidade * mesesTotais;
     });
 
-    document.getElementById('result').innerHTML = `<p>Total estimado: R$ ${totalPrice.toFixed(2)}</p>`;
+    document.getElementById('resultado').innerHTML = `<p>Total estimado: R$ ${precoTotal.toFixed(2)}</p>`;
 }
