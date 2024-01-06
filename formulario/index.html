@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Orçamento</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+
+<div id="form-container">
+    <h2>Pedido de Orçamento</h2>
+    <h2>Equipamentos de Informática</h2>
+    <form id="quote-form">
+        <label for="equipment">Selecione o Equipamento:</label>
+        <select id="equipment" name="equipment">
+            <option value="desktop">Desktop</option>
+            <option value="laptop">Laptop</option>
+            <option value="impressora">Impressora</option>
+            <option value="monitor">Monitor</option>
+            <option value="teclado">Teclado</option>
+            <option value="mouse">Mouse</option>
+            <option value="roteador">Roteador</option>
+            <option value="scanner">Scanner</option>
+            <option value="hd-externo">HD Externo</option>
+            <option value="projetor">Projetor</option>
+            <option value="caixas-de-som">Caixas de Som</option>
+            <option value="webcam">Webcam</option>
+            <option value="tablet">Tablet</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="placa-de-video">Placa de Vídeo</option>
+            <option value="fone-de-ouvido">Fones de Ouvido</option>
+            <option value="impressora-scanner">Impressora/Scanner</option>
+            <option value="monitor-externo">Monitor Externo</option>
+            <option value="adaptador-wifi">Adaptador Wi-Fi</option>
+            <option value="cadeira-escritorio">Cadeira de Escritório</option>
+            <option value="luminaria-mesa">Luminária de Mesa</option>
+            <option value="mesa-escritorio">Mesa de Escritorio</option>
+
+        </select>
+
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+        <label for="duration">Duração do Aluguel (em meses):</label>
+        <input type="number" id="duration" name="duration" min="0" value="0">
+
+        <label for="duration-days">Duração em Dias (opcional):</label>
+        <input type="number" id="duration-days" name="duration-days" min="0" value="0">
+
+<button type="button" onclick="addEquipment()">Adicionar Equipamento</button>
+        <button type="button" onclick="calculateQuote()">Calcular Orçamento</button>
+
+<div id="equipment-list"></div>
+        <div id="result"></div>
+    </form>
+
+    <div id="contact-info">
+        <h3>Contato e Condições especiais</h3>
+        <p>Para obter mais informações e Condições especiais, entre em contato conosco:</p>
+        <p>Email: contato@empresa.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal">
+    <span id="deleteModalClose" class="modal-close">&times;</span>
+    <p>Tem certeza de que deseja excluir este item?</p>
+    <button id="confirmDeleteButton" style="background-color: #ff0000; color: #fff;">Confirmar Exclusão</button>
+</div>
+<div id="deleteModalOverlay" class="modal-overlay"></div>
+
+</body>
+<!-- <footer>
+    <p>Powered by Bruno Vieira <a href="mailto:brunonewdev@gmail.com">brunonewdev@gmail.com</a></p>
+</footer> -->
+</html>
