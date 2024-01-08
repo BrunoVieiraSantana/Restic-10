@@ -1,5 +1,6 @@
 import readline from 'readline';
 
+
 const interfaceDeUsuario = readline.createInterface({
   input: process.stdin,
   output: process.stdout
