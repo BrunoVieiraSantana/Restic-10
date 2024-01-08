@@ -119,6 +119,14 @@
     left: 538px;
   }
   
+  .home .overlap-wrapper2 {
+    position: absolute;
+    width: 201px;
+    height: 60px;
+    top: 543px;
+    left: 298px;
+  }
+
   .home .FALE-CONOSCO-wrapper {
     position: relative;
     width: 199px;
