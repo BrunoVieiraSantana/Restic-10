@@ -1,0 +1,21 @@
+
+
+  .topo {
+    background-color: #1877f2;
+    height: 60px;
+    position: absolute;
+    width: 320px;
+    left: 35%;
+  }
+  
+  .texto {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 20px;
+    letter-spacing: 0;
+    position: absolute;
+    top: 17px;
+  }
+  
