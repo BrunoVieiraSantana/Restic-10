@@ -1,13 +1,20 @@
-.exemplo{
-    background-color: rgb(30, 59, 209);
-    color: #FFF;
-    font-family: Inter;
-    padding-left: 20px;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-align: left;
-    align-items: center;
 
-}
+  .topo {
+    background-color: #1877f2;
+    height: 60px;
+    position: absolute;
+    width: 320px;
+    left: 35%;
+  }
+  
+  .texto {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 20px;
+    letter-spacing: 0;
+    position: absolute;
+    top: 17px;
+  }
+  
