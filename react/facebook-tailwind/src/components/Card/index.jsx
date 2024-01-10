@@ -5,8 +5,6 @@ export default function Card() {
   return (
     <div className="mx-auto items-center justify-center p-[10px] flex flex-col relative">
       <div className="w-[278px] h-[295px] absolute z-10 shadow-lg"></div>
-
-
       <div className="flex space-x-2 m-2 z-20">
         <img className="w-12 h-12 rounded-full transform -translate-x-16" src="img/Ellipse-1.png" alt="Profile" />
         <div className="transform -translate-x-16 -translate-y-[-6px]">
