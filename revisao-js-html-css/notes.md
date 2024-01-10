@@ -1,0 +1,8 @@
+
+getElementById
+
+createElement
+
+appendChild
+
+addEventListener
