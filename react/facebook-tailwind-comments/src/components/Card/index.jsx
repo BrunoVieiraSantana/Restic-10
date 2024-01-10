@@ -4,7 +4,7 @@ import { BsArrow90DegRight } from "react-icons/bs";
 const Card = ({ post }) => {
   return (
     <div className="mx-auto items-center justify-center p-[10px] flex flex-col relative">
-      {/* ... (restante do código) */}
+      <div className="w-[278px] h-[295px] absolute z-10 shadow-lg"></div>
       <div className="flex space-x-2 m-2 z-20">
         <img className="w-12 h-12 rounded-full transform -translate-x-16" src={post.avatar} alt="Profile" />
         <div className="transform -translate-x-16 -translate-y-[-6px]">
@@ -14,7 +14,7 @@ const Card = ({ post }) => {
           <p className="flex space-x-2 text-neutral-400 text-xs font-medium font-inter">12h <BiGlobe /></p>
         </div>
       </div>
-      {/* ... (restante do código) */}
+      <img className="w-[278px] h-[188.32px] z-20" src="img/Rectangle-1.png" alt="Post" />
       <nav className="flex space-x-[10px] p-4 z-20">
         <p className="text-neutral-400 text-xs font-medium font-inter">Curtir</p>
         <p className="text-neutral-400 text-xs font-medium font-inter"><BiLike /></p>
@@ -24,7 +24,6 @@ const Card = ({ post }) => {
         <p className="text-neutral-400 text-xs font-medium font-inter"><BsArrow90DegRight /></p>
       </nav>
       <div>
-        {/* Renderizando comentários dinamicamente */}
         {post.comments && (
           <div className="text-neutral-400 text-xs font-medium font-inter">{post.comments}</div>
         )}
