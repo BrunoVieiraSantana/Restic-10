@@ -6,3 +6,5 @@ createElement
 appendChild
 
 addEventListener
+
+innerHTML
