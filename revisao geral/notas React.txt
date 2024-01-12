@@ -1,0 +1,45 @@
+Comandos básicos React
+
+npm create vite@latest
+React
+Javascript+SWC
+npm install
+npm run dev
+
+Comandos básicos tailwind
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+tailwind.config.js
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+
+Adição das diretivas do Tailwind CSS no index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+m: Margin (margem)
+p: Padding (preenchimento)
+t: Top (superior)
+b: Bottom (inferior)
+l: Left (esquerda)
+r: Right (direita)
+x: Horizontal (esquerda e direita)
+y: Vertical (superior e inferior)
+auto: Define a propriedade para auto
+1, 2, 3, ...: Representam os níveis de espaçamento (1 é 0.25rem, 2 é 0.5rem, 3 é 0.75rem, e assim por diante)
+px: Pixels
+auto: Define a propriedade para auto
+
+
+Top (superior): t
+Bottom (inferior): b
+Left (esquerda): l
+Right (direita): r
+Horizontal (esquerda e direita): x
+Vertical (superior e inferior): y
