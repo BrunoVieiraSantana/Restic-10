@@ -1,0 +1,22 @@
+body{
+    background: #0a8a74;
+}
+#titulo{
+    text-align: center;
+
+}
+
+#subTitulo{
+    text-align: center;
+
+}
+
+#caixaBotao{
+    text-align:center ;
+}
+
+input, textarea, fieldset{
+    border-radius: 5px;
+
+
+}
