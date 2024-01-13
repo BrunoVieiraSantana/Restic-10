@@ -1,0 +1,38 @@
+Header:
+
+HeaderSection
+Seção 1:
+
+IntroductionSection
+HeroSection
+Seção 2:
+
+FeaturesSection
+FeaturesSection
+Seção 3:
+
+TestimonialsSection
+FeedbackSection
+Seção 4:
+
+ServicesSection
+OfferingsSection
+Seção 5:
+
+GallerySection
+PortfolioSection
+Seção 6:
+
+CTASection 
+ActionSection
+Seção 7:
+
+PricingSection
+PlansSection
+Seção 8:
+
+ContactSection
+GetInTouchSection
+Footer:
+
+FooterSection
