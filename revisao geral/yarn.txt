@@ -1,0 +1,18 @@
+Abra o PowerShell como administrador:
+
+Clique com o botão direito do mouse no ícone do PowerShell.
+Selecione "Executar como administrador".
+Verifique a Política de Execução Atual:
+
+Execute o comando Get-ExecutionPolicy para verificar a política de execução atual. Se for "Restricted", é isso que está causando o problema.
+Defina uma Política de Execução menos restritiva:
+
+Execute o comando Set-ExecutionPolicy RemoteSigned para permitir a execução de scripts locais assinados.
+Observação: Definir a política como "RemoteSigned" permite a execução de scripts locais que são assinados digitalmente, mas exige que os scripts baixados da Internet sejam assinados para serem executados.
+
+Confirme a mudança:
+
+Quando solicitado, confirme a alteração da política digitando "Y" e pressionando Enter.
+Execute o comando do Yarn novamente:
+
+Agora, tente executar o comando yarn --version novamente e veja se o problema persiste.
