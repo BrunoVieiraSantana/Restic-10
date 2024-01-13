@@ -1,48 +1,54 @@
-const readline = require('readline-sync');
-const { listPeople, addPerson, removePerson, editPerson, findPerson, saveData, loadData } = require('./utils');
+const readlineSync = require('readline-sync');
+const { listPeople, addPerson, removePerson, editPerson, findPerson, readDataFromFile, writeDataToFile } = require('./utils');
+
+readDataFromFile();
 
 function main() {
-    let peopleList;
+    let option;
+    do {
+        console.log("\n1 - List people");
+        console.log("2 - Add one people");
+        console.log("3 - Remove one people");
+        console.log("4 - Edit one people");
+        console.log("5 - Find one people");
+        console.log("6 - Exit");
 
-    if (loadData()) {
-        peopleList = loadData();
-    } else {
-        peopleList = [];
-    }
+        option = readlineSync.question("Choose an option opção: ");
 
-    while (true) {
-        console.log('\n1 - List People');
-        console.log('2 - Add Person');
-        console.log('3 - Remove Person');
-        console.log('4 - Edit Person');
-        console.log('5 - Find Person');
-        console.log('6 - Exit');
-
-        const choice = readline.question('Enter your choice: ');
-
-        switch (choice) {
+        switch (option) {
             case '1':
-                listPeople(peopleList);
+                listPeople();
                 break;
             case '2':
-                addPerson(peopleList);
+                const name = readlineSync.question("Enter name: ");
+                const email = readlineSync.question("Enter email: ");
+                const phone = readlineSync.question("Enter phone: ");
+                addPerson(name, email, phone);
+                writeDataToFile();
                 break;
             case '3':
-                removePerson(peopleList);
+                const removeEmail = readlineSync.question("Enter the email to remove: ");
+                removePerson(removeEmail);
+                writeDataToFile();
                 break;
             case '4':
-                editPerson(peopleList);
+                const editEmail = readlineSync.question("Enter the email to edit: ");
+                const newName = readlineSync.question("Enter the new name: ");
+                const newPhone = readlineSync.question("Enter the new phone: ");
+                editPerson(editEmail, newName, newPhone);
+                writeDataToFile();
                 break;
             case '5':
-                findPerson(peopleList);
+                const findEmail = readlineSync.question("Enter the email to find: ");
+                findPerson(findEmail);
                 break;
             case '6':
-                saveData(peopleList);
-                process.exit(0);
+                console.log("Exiting program.");
+                break;
             default:
-                console.log('Invalid choice. Please enter a number between 1 and 6.');
+                console.log("Invalid option. Please try again.");
         }
-    }
+    } while (option !== '6');
 }
 
 main();

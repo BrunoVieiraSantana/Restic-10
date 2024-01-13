@@ -1,80 +1,65 @@
 const fs = require('fs');
-const readline = require('readline-sync');
 
-function listPeople(peopleList) {
-    console.log('\nList of People:');
-    peopleList.forEach(person => console.log(person));
-}
+let peopleList = [];
 
-function addPerson(peopleList) {
-    const name = readline.question('Enter name: ');
-    const email = readline.question('Enter email: ');
-    const phone = readline.question('Enter phone: ');
-
-    const newPerson = { name, email, phone };
-
-    const existingPerson = peopleList.find(person => person.email === email);
-    if (existingPerson) {
-        console.log('Person with this email already exists. Cannot add.');
-    } else {
-        peopleList.push(newPerson);
-        console.log('Person added successfully.');
-    }
-}
-
-function removePerson(peopleList) {
-    const emailToRemove = readline.question('Enter email to remove: ');
-    const indexToRemove = peopleList.findIndex(person => person.email === emailToRemove);
-
-    if (indexToRemove !== -1) {
-        peopleList.splice(indexToRemove, 1);
-        console.log('Person removed successfully.');
-    } else {
-        console.log('Person not found.');
-    }
-}
-
-function editPerson(peopleList) {
-    const emailToEdit = readline.question('Enter email to edit: ');
-    const indexToEdit = peopleList.findIndex(person => person.email === emailToEdit);
-
-    if (indexToEdit !== -1) {
-        const newName = readline.question('Enter new name: ');
-        const newPhone = readline.question('Enter new phone: ');
-
-        peopleList[indexToEdit].name = newName;
-        peopleList[indexToEdit].phone = newPhone;
-
-        console.log('Person edited successfully.');
-    } else {
-        console.log('Person not found.');
-    }
-}
-
-function findPerson(peopleList) {
-    const emailToFind = readline.question('Enter email to find: ');
-    const foundPerson = peopleList.find(person => person.email === emailToFind);
-
-    if (foundPerson) {
-        console.log('Person found:');
-        console.log(foundPerson);
-    } else {
-        console.log('Person not found.');
-    }
-}
-
-function saveData(peopleList) {
-    const data = JSON.stringify(peopleList, null, 2);
-    fs.writeFileSync('data.json', data);
-}
-
-function loadData() {
+function readDataFromFile() {
     try {
-        const data = fs.readFileSync('data.json', 'utf8');
-        return JSON.parse(data);
+        const data = fs.readFileSync('people.csv', 'utf8');
+        peopleList = data.split('\n').map(line => {
+            const [name, email, phone] = line.split(',');
+            return { name, email, phone };
+        });
     } catch (error) {
-        return null;
+        peopleList = [];
     }
 }
 
-module.exports = { listPeople, addPerson, removePerson, editPerson, findPerson, saveData, loadData };
+function writeDataToFile() {
+    const data = peopleList.map(person => `${person.name},${person.email},${person.phone}`).join('\n');
+    fs.writeFileSync('people.csv', data, 'utf8');
+}
+
+function listPeople() {
+    console.log("People List:");
+    peopleList.forEach(person => {
+        console.log(`Name: ${person.name}, Email: ${person.email}, Phone: ${person.phone}`);
+    });
+}
+
+function addPerson(name, email, phone) {
+    const existingPerson = peopleList.find(person => person.email === email);
+    if (!existingPerson) {
+        const newPerson = { name, email, phone };
+        peopleList.push(newPerson);
+        console.log("Person added successfully!");
+    } else {
+        console.log("Email already exists. Please use a unique email.");
+    }
+}
+
+function removePerson(email) {
+    peopleList = peopleList.filter(person => person.email !== email);
+    console.log("Person removed successfully!");
+}
+
+function editPerson(email, newName, newPhone) {
+    const index = peopleList.findIndex(person => person.email === email);
+    if (index !== -1) {
+        peopleList[index].name = newName;
+        peopleList[index].phone = newPhone;
+        console.log("Person edited successfully!");
+    } else {
+        console.log("Person not found. Please check the email.");
+    }
+}
+
+function findPerson(email) {
+    const person = peopleList.find(person => person.email === email);
+    if (person) {
+        console.log(`Name: ${person.name}, Email: ${person.email}, Phone: ${person.phone}`);
+    } else {
+        console.log("Person not found. Please check the email.");
+    }
+}
+
+module.exports = { listPeople, addPerson, removePerson, editPerson, findPerson, readDataFromFile, writeDataToFile };
