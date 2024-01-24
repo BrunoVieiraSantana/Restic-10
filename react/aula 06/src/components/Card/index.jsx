@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { CartContext } from "../../context/CartContext"
 
-export default function Card({product, setCart}){
+export default function Card({product}){
     const[qtdItens, setQtdItens] = useState(0)
     function handleItem(action){
         if(action==="+"){
@@ -12,6 +13,7 @@ export default function Card({product, setCart}){
         }
        
     }
+    const {setCart}=useContext(CartContext)
    
    
 
