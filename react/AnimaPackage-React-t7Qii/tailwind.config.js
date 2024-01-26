@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{html,js,ts,jsx,tsx}",
-  ],
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -18,12 +15,8 @@ export default {
         "variable-collection-slate-100": "var(--variable-collection-slate-100)",
         "variable-collection-white": "var(--variable-collection-white)",
         "variable-collection-zinc-50": "var(--variable-collection-zinc-50)",
-        "primary": "#2E91E2",
-        "secondary": "#9866EB"
       },
     },
   },
   plugins: [],
-}
-
-
+};

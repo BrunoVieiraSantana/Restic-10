@@ -1,0 +1,1 @@
+export { TelaHomeMobile } from "./TelaHomeMobile";
