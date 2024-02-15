@@ -1,12 +1,12 @@
 export default function Header() {
     return (
-    <div className="bg-[#1E3A8A]">
+    <div className="bg-[#1E3A8A] w-full h-36">
       <div className="flex flex-row justify-center items-center space-x-24">
         <img className="w-[5.0%]" src="./src/assets/menu.svg"></img>
-        <img className="w-[30.0%]" src="./src/assets/logo.png"></img>
+        <img className="w-[35%]" src="./src/assets/logo.png"></img>
         <img className="w-[5.0%]" src="./src/assets/cart.svg"></img>
       </div>
-      <form className="flex justify-center items-center pb-4">
+      {/* <form className="flex justify-center items-center pb-4">
             <div className="relative">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ export default function Header() {
                     className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
                 />
             </div>
-        </form>
+        </form> */}
     </div>
     );
   }

@@ -7,6 +7,11 @@ import SignUp from "./pages/SignUp"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 
+import Home from "./pages/Home"
+import MyOrders from "./pages/MyOrders"
+import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
+
 
 function App() {
   const [count, setCount] = useState(0)

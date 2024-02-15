@@ -1,3 +1,7 @@
+echo "{}" > package.json 
+npm install -g npm@latest
+npx create-vite@latest .
+
 npm install create vite@latest
 npm install 
 npm run dev
