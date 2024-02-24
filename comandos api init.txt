@@ -1,0 +1,5 @@
+npm cache clean --force
+npm install --force
+npm init
+npm install express --force
+npm install pg --force   
