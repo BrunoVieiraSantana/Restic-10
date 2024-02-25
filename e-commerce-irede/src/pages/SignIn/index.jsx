@@ -8,7 +8,7 @@ export default function SignIn() {
     const {setUser} = useContext(UserContext)
 
     const[userInput, setUserInput]=useState({email:"", password:""})
-    const userTeste = {email:"darlan.mendes@irede.org.br", password:"123456"}
+    const userTeste = {email:"123@123.com", password:"123"}
 
     function testeLogin(){
         if(userInput.email === userTeste.email && userInput.password === userTeste.password){

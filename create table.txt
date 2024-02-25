@@ -1,0 +1,36 @@
+UPDATE products
+SET thumbnail = 'https://i.ibb.co/C7F6rCT/image-product-1-thumbnail.jpg'
+WHERE Id_product = 1;
+
+
+select * from products
+
+pg_dump -h localhost -p 5432 -d e_commerce -U postgres -s -F p -E UTF-8 -f "C:\Users\Cleci\Documents\Downloads\diagrama2.sql"
+
+
+CREATE TABLE users (
+    id_user SERIAL PRIMARY KEY,
+    name VARCHAR,
+    email VARCHAR,
+    password VARCHAR
+);
+
+
+CREATE TABLE products (
+    id_product SERIAL PRIMARY KEY,
+    title VARCHAR NOT NULL,
+    descript VARCHAR ,
+    currentPrice INTEGER ,
+    mainImg VARCHAR ,
+    thumbnail VARCHAR 
+);
+
+
+CREATE TABLE sales (
+    id_sale SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id_user),
+    product_id INTEGER REFERENCES products(id_product),
+    purchase_date DATE NOT NULL,
+    purchase_price INTEGER NOT NULL,
+    status VARCHAR NOT NULL CHECK (status IN ('Finalizado', 'Esperando Pagamento'))
+);

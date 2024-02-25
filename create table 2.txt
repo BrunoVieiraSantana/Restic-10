@@ -1,0 +1,24 @@
+CREATE TABLE users (
+    id_user SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR NOT NULL
+);
+
+CREATE TABLE products (
+    id_product SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    descript TEXT,
+    currentPrice INTEGER,
+    mainImg VARCHAR(255),
+    thumbnail VARCHAR(255)
+);
+
+CREATE TABLE sales (
+    id_sale SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id_user),
+    product_id INTEGER REFERENCES products(id_product),
+    purchase_date DATE NOT NULL,
+    purchase_price INTEGER NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('Finalizado', 'Esperando Pagamento'))
+);
