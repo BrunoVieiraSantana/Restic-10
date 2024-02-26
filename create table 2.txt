@@ -1,3 +1,10 @@
+INSERT INTO products (id_product, title, description, currentPrice, mainImg, thumbnail)
+VALUES (1, 'Camisa Karasuno nº10', 'Camisa do time de Volei Karasuno', 60, 'https://i.ibb.co/18VWf4k/image-product-1.jpg', 'https://i.ibb.co/C7F6rCT/image-product-1-thumbnail.jpg');
+
+
+DROP TABLE sales;
+DROP TABLE products;
+
 CREATE TABLE users (
     id_user SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -8,7 +15,7 @@ CREATE TABLE users (
 CREATE TABLE products (
     id_product SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    descript TEXT,
+    description TEXT,
     currentPrice INTEGER,
     mainImg VARCHAR(255),
     thumbnail VARCHAR(255)
@@ -20,5 +27,7 @@ CREATE TABLE sales (
     product_id INTEGER REFERENCES products(id_product),
     purchase_date DATE NOT NULL,
     purchase_price INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
     status VARCHAR(20) NOT NULL CHECK (status IN ('Finalizado', 'Esperando Pagamento'))
 );
+
