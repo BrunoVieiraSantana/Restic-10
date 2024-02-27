@@ -3,7 +3,7 @@ VALUES (1, 'Camisa Karasuno nº10', 'Camisa do time de Volei Karasuno', 60, 'htt
 
 
 DROP TABLE sales;
-DROP TABLE products;
+DROP TABLE sales;
 
 CREATE TABLE users (
     id_user SERIAL PRIMARY KEY,

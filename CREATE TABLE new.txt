@@ -1,0 +1,38 @@
+INSERT INTO products (title, description, category, currentPrice, mainImg, thumbnail)
+VALUES ('Camisa Karasuno nº10', 'Camisa do time de Volei Karasuno','vestuario', 60, 'https://i.ibb.co/18VWf4k/image-product-1.jpg', 'https://i.ibb.co/C7F6rCT/image-product-1-thumbnail.jpg');
+
+vestuario, calçados, equipamentos
+
+CREATE TABLE products (
+    id_product SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    category VARCHAR(255), 
+    currentPrice INTEGER,
+    mainImg VARCHAR(255),
+    thumbnail VARCHAR(255)
+);
+
+
+CREATE TABLE users (
+    id_user SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR NOT NULL
+);
+
+
+CREATE TABLE purchases (
+    id_purchase SERIAL PRIMARY KEY,
+    purchase_date DATE NOT NULL
+);
+
+CREATE TABLE items (
+    id_item SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id_user),
+    product_id INTEGER REFERENCES products(id_product),
+    purchase_id INTEGER REFERENCES purchases(id_purchase), 
+    purchase_price INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('Finalizado', 'Esperando Pagamento'))
+);
